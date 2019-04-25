@@ -12,11 +12,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnStart.setOnClickListener{
-            val intent=Intent(this,ExampleService::class.java)
+            val intent=Intent(this,ForegroundService::class.java)
+                .apply {
+                    action=ForegroundService.ACTION_START_FOREGROUND_SERVICE
+                }
             startService(intent)
         }
         btnStop.setOnClickListener {
-            val intent=Intent(this,ExampleService::class.java)
+            val intent=Intent(this,ForegroundService::class.java)
+                .apply {
+                    action=ForegroundService.ACTION_STOP_FOREGROUND_SERVICE
+                }
             stopService(intent)
         }
     }

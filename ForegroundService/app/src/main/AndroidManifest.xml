@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
           package="com.example.foregroundservice">
-<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
     <application
             android:name=".App"
             android:allowBackup="true"
@@ -11,8 +14,14 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+        <receiver
+                android:name=".MyBroadcastReceiver"
+                android:enabled="true"
+                android:exported="false">
+        </receiver>
+
         <service
-                android:name=".ExampleService"
+                android:name=".ForegroundService"
                 android:enabled="true"
                 android:exported="false">
         </service>
